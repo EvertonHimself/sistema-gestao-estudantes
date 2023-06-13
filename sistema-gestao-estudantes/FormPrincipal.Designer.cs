@@ -30,14 +30,14 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.eSTUDANTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cURSOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nOTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserirEstudanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarEstudantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarRemoverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciarEstudantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cURSOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nOTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,43 @@
             this.eSTUDANTEToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.eSTUDANTEToolStripMenuItem.Text = "ESTUDANTE";
             // 
+            // inserirEstudanteToolStripMenuItem
+            // 
+            this.inserirEstudanteToolStripMenuItem.Name = "inserirEstudanteToolStripMenuItem";
+            this.inserirEstudanteToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.inserirEstudanteToolStripMenuItem.Text = "Inserir Estudante";
+            this.inserirEstudanteToolStripMenuItem.Click += new System.EventHandler(this.inserirEstudanteToolStripMenuItem_Click);
+            // 
+            // listarEstudantesToolStripMenuItem
+            // 
+            this.listarEstudantesToolStripMenuItem.Name = "listarEstudantesToolStripMenuItem";
+            this.listarEstudantesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.listarEstudantesToolStripMenuItem.Text = "Listar Estudantes";
+            // 
+            // estatísticasToolStripMenuItem
+            // 
+            this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
+            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.estatísticasToolStripMenuItem.Text = "Estatísticas";
+            // 
+            // editarRemoverToolStripMenuItem
+            // 
+            this.editarRemoverToolStripMenuItem.Name = "editarRemoverToolStripMenuItem";
+            this.editarRemoverToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.editarRemoverToolStripMenuItem.Text = "Editar/Remover";
+            // 
+            // gerenciarEstudantesToolStripMenuItem
+            // 
+            this.gerenciarEstudantesToolStripMenuItem.Name = "gerenciarEstudantesToolStripMenuItem";
+            this.gerenciarEstudantesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.gerenciarEstudantesToolStripMenuItem.Text = "Gerenciar Estudantes";
+            // 
+            // imprimirToolStripMenuItem
+            // 
+            this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
+            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.imprimirToolStripMenuItem.Text = "Imprimir";
+            // 
             // cURSOToolStripMenuItem
             // 
             this.cURSOToolStripMenuItem.Name = "cURSOToolStripMenuItem";
@@ -78,43 +115,6 @@
             this.nOTASToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.nOTASToolStripMenuItem.Text = "NOTAS";
             // 
-            // inserirEstudanteToolStripMenuItem
-            // 
-            this.inserirEstudanteToolStripMenuItem.Name = "inserirEstudanteToolStripMenuItem";
-            this.inserirEstudanteToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.inserirEstudanteToolStripMenuItem.Text = "Inserir Estudante";
-            this.inserirEstudanteToolStripMenuItem.Click += new System.EventHandler(this.inserirEstudanteToolStripMenuItem_Click);
-            // 
-            // listarEstudantesToolStripMenuItem
-            // 
-            this.listarEstudantesToolStripMenuItem.Name = "listarEstudantesToolStripMenuItem";
-            this.listarEstudantesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listarEstudantesToolStripMenuItem.Text = "Listar Estudantes";
-            // 
-            // estatísticasToolStripMenuItem
-            // 
-            this.estatísticasToolStripMenuItem.Name = "estatísticasToolStripMenuItem";
-            this.estatísticasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.estatísticasToolStripMenuItem.Text = "Estatísticas";
-            // 
-            // editarRemoverToolStripMenuItem
-            // 
-            this.editarRemoverToolStripMenuItem.Name = "editarRemoverToolStripMenuItem";
-            this.editarRemoverToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarRemoverToolStripMenuItem.Text = "Editar/Remover";
-            // 
-            // imprimirToolStripMenuItem
-            // 
-            this.imprimirToolStripMenuItem.Name = "imprimirToolStripMenuItem";
-            this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.imprimirToolStripMenuItem.Text = "Imprimir";
-            // 
-            // gerenciarEstudantesToolStripMenuItem
-            // 
-            this.gerenciarEstudantesToolStripMenuItem.Name = "gerenciarEstudantesToolStripMenuItem";
-            this.gerenciarEstudantesToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.gerenciarEstudantesToolStripMenuItem.Text = "Gerenciar Estudantes";
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,7 +125,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
             this.Text = "SGA - Início";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
