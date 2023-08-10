@@ -76,6 +76,16 @@ namespace sistema_gestao_estudantes
                     MessageBox.Show("Novo Estudante Cadastrado", "Sucesso!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else
+                {
+                    MessageBox.Show("Erro", "Inserir Estudante", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Campos não preenchidos",
+                    "Inserir Estudante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
