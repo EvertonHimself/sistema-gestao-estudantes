@@ -11,7 +11,7 @@ namespace sistema_gestao_estudantes
 {
     internal class Estudante
     {
-        MEU_BD bancoDeDados = new MEU_BD() ;
+        MEU_BD bancoDeDados = new MEU_BD();
 
         // Função que inclui o estudante no banco de dados.
         public bool inserirEstudante(string nome, string sobrenome,
