@@ -65,6 +65,7 @@
             this.Controls.Add(this.buttonAtualizar);
             this.Controls.Add(this.dataGridViewLista);
             this.Name = "FormListaDeEstudantes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormListaDeEstudantes";
             this.Load += new System.EventHandler(this.FormListaDeEstudantes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLista)).EndInit();
