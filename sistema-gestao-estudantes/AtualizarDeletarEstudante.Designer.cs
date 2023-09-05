@@ -286,7 +286,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AtualizarDeletarEstudante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AtualizarDeletarEstudante";
+            this.Text = "SGA - Editar Estudante";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();

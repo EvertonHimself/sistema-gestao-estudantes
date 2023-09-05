@@ -46,7 +46,7 @@ namespace sistema_gestao_estudantes
             string endereco = textBoxEndereco.Text;
             string genero = "Feminino";
 
-            if (radioButtonMasculino.Checked) 
+            if (radioButtonMasculino.Checked)
             {
                 genero = "Masculino";
             }
@@ -70,7 +70,7 @@ namespace sistema_gestao_estudantes
             else if (Verificar())
             {
                 pictureBoxFoto.Image.Save(foto, pictureBoxFoto.Image.RawFormat);
-                if (estudante.inserirEstudante(nome, sobrenome, nascimento, 
+                if (estudante.inserirEstudante(nome, sobrenome, nascimento,
                     telefone, genero, endereco, foto))
                 {
                     MessageBox.Show("Novo Estudante Cadastrado", "Sucesso!",
@@ -78,7 +78,7 @@ namespace sistema_gestao_estudantes
                 }
                 else
                 {
-                    MessageBox.Show("Erro", "Inserir Estudante", 
+                    MessageBox.Show("Erro", "Inserir Estudante",
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }

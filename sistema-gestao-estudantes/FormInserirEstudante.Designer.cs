@@ -261,7 +261,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormInserirEstudante";
-            this.Text = "FormInserirEstudante";
+            this.Text = "SGA - Cadastrar Estudante";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();
