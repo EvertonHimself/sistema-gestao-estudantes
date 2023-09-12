@@ -258,6 +258,7 @@
             this.buttonRemover.TabIndex = 21;
             this.buttonRemover.Text = "Remover";
             this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
             // 
             // AtualizarDeletarEstudante
             // 

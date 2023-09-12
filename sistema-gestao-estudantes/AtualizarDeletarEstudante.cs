@@ -13,6 +13,8 @@ namespace sistema_gestao_estudantes
 {
     public partial class AtualizarDeletarEstudante : Form
     {
+        // Cria uma instância de um estudante.
+        Estudante estudante = new Estudante();
         public AtualizarDeletarEstudante()
         {
             InitializeComponent();
@@ -51,7 +53,7 @@ namespace sistema_gestao_estudantes
         private void buttonConfirmar_Click(object sender, EventArgs e)
         {
             // Atualiza as informações do estudante.
-            Estudante estudante = new Estudante();
+            //Estudante estudante = new Estudante();
             // Converte um número de uma caixa de texto em NÚMERO DE VERDADE.
             int id = Convert.ToInt32(textBoxID.Text);
             string nome = textBoxNome.Text;
@@ -102,6 +104,13 @@ namespace sistema_gestao_estudantes
                 MessageBox.Show("Campos não preenchidos",
                     "Inserir Estudante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            // Remove selected student.
+            int id = Convert.ToInt32(textBoxID.Text);
+
         }
     }
 }
