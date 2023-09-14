@@ -79,6 +79,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Procurar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.buttonProcurar_Click);
             // 
             // textBoxNome
             // 

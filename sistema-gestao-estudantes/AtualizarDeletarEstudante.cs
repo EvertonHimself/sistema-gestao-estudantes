@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -108,9 +110,70 @@ namespace sistema_gestao_estudantes
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
-            // Remove selected student.
+            // Remove o estudante selecionado.
             int id = Convert.ToInt32(textBoxID.Text);
 
+            // Exibe uma caixa de diálogo perguntando se realmente
+            // quer remover o estudante.
+            if (MessageBox.Show("Tem certeza que quer remover o estudante?", 
+                "Remover Estudante", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (estudante.deletarEstudante(id))
+                {   
+                    // Parâmetros: mensagem, título da janela, botão, ícone.
+                    MessageBox.Show("Estudante Removido", "Remover Estudante",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Limpa os campos de textos.
+                    textBoxID.Text = ""; // Obs: dará erro se tentar apagar o mesmo estudante 2x.
+                    textBoxNome.Text = "";
+                    textBoxSobrenome.Text = "";
+                    textBoxTelefone.Text = "";
+                    textBoxEndereco.Text = "";
+                    dateTimePickerNascimento.Value = DateTime.Now;
+                    pictureBoxFoto.Image = null;
+                }
+                else
+                {
+                    MessageBox.Show("Estudante Não Removido",
+                        "Remover Estudante", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void buttonProcurar_Click(object sender, EventArgs e)
+        {
+            // Procura estudante pela ID.
+            int id = Convert.ToInt32(textBoxID.Text);
+            MySqlCommand comando = new MySqlCommand("SELECT `id`,`nome`,`sobrenome`,`nascimento`,`genero`,`telefone`,`endereco`,`foto` FROM `estudantes` WHERE `id`=" + id);
+
+            DataTable tabela = estudante.pegarEstudantes(comando);
+
+            if (tabela.Rows.Count > 0)
+            {
+                textBoxNome.Text = tabela.Rows[0]["nome"].ToString();
+                textBoxSobrenome.Text = tabela.Rows[0]["sobrenome"].ToString();
+                textBoxTelefone.Text = tabela.Rows[0]["telefone"].ToString();
+                textBoxEndereco.Text = tabela.Rows[0]["endereco"].ToString();
+
+                dateTimePickerNascimento.Value = (DateTime)tabela.Rows[0]["nascimento"];
+
+                if (tabela.Rows[0]["genero"].ToString() == "Feminino")
+                {
+                    radioButtonFeminino.Checked = true;
+                }
+                else
+                {
+                    radioButtonMasculino.Checked = true;
+                }
+
+                // Foto do estudante.
+                byte[] fotoDaTabela = (byte[]) tabela.Rows[0]["foto"];
+                MemoryStream fotoDaInterface = new MemoryStream(fotoDaTabela);
+                pictureBoxFoto.Image = Image.FromStream(fotoDaInterface);
+            }
         }
     }
 }
