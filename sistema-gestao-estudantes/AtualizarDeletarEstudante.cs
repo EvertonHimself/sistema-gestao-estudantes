@@ -11,18 +11,20 @@ using System.Windows.Forms;
 
 namespace sistema_gestao_estudantes
 {
-    public partial class FormInserirEstudante : Form
+    public partial class AtualizarDeletarEstudante : Form
     {
-        public FormInserirEstudante()
+        // Cria uma instância de um estudante.
+        Estudante estudante = new Estudante();
+        public AtualizarDeletarEstudante()
         {
             InitializeComponent();
         }
 
-        private void btnEnviarFoto_Click(object sender, EventArgs e)
+        private void buttonEnviarFoto_Click(object sender, EventArgs e)
         {
             // Pesquisa pela imagem no computador.
             OpenFileDialog abrirArquivo = new OpenFileDialog();
-            abrirArquivo.Filter = 
+            abrirArquivo.Filter =
                 "Seleciona a Foto(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
             if (abrirArquivo.ShowDialog() == DialogResult.OK)
             {
@@ -30,15 +32,30 @@ namespace sistema_gestao_estudantes
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        // Verificar se todos os campos de cadastro foram
+        // preenchidos.
+        bool Verificar()
         {
-            Close();
+            if ((textBoxNome.Text.Trim() == "") ||
+                (textBoxSobrenome.Text.Trim() == "") ||
+                (textBoxTelefone.Text.Trim() == "") ||
+                (textBoxEndereco.Text.Trim() == "") ||
+                (pictureBoxFoto.Image == null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void buttonConfirmar_Click(object sender, EventArgs e)
         {
-            // Insere um estudante.
-            Estudante estudante = new Estudante();
+            // Atualiza as informações do estudante.
+            //Estudante estudante = new Estudante();
+            // Converte um número de uma caixa de texto em NÚMERO DE VERDADE.
+            int id = Convert.ToInt32(textBoxID.Text);
             string nome = textBoxNome.Text;
             string sobrenome = textBoxSobrenome.Text;
             DateTime nascimento = dateTimePickerNascimento.Value;
@@ -70,10 +87,10 @@ namespace sistema_gestao_estudantes
             else if (Verificar())
             {
                 pictureBoxFoto.Image.Save(foto, pictureBoxFoto.Image.RawFormat);
-                if (estudante.inserirEstudante(nome, sobrenome, nascimento,
+                if (estudante.atualizarEstudante(id, nome, sobrenome, nascimento,
                     telefone, genero, endereco, foto))
                 {
-                    MessageBox.Show("Novo Estudante Cadastrado", "Sucesso!",
+                    MessageBox.Show("Informações Atualizadas!", "Sucesso!",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -89,22 +106,11 @@ namespace sistema_gestao_estudantes
             }
         }
 
-        // Verificar se todos os campos de cadastro foram
-        // preenchidos.
-        bool Verificar()
+        private void buttonRemover_Click(object sender, EventArgs e)
         {
-            if ((textBoxNome.Text.Trim() == "") ||
-                (textBoxSobrenome.Text.Trim() == "") ||
-                (textBoxTelefone.Text.Trim() == "") ||
-                (textBoxEndereco.Text.Trim() == "") ||
-                (pictureBoxFoto.Image == null))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            // Remove selected student.
+            int id = Convert.ToInt32(textBoxID.Text);
+
         }
     }
 }
